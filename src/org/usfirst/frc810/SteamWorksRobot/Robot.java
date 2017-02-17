@@ -92,14 +92,14 @@ public class Robot extends IterativeRobot {
         
         c = CameraServer.getInstance().startAutomaticCapture();
         Timer.delay(.1);
-        SmartDashboard.putNumber("Exposure", 20);
+        c.setExposureManual(10);
        
         SmartDashboard.putString("AutoFile", "");
         new VisionThread(c, new GripPipeline(), 
         		new VisionListener(CameraServer.getInstance().putVideo("Processed", 160, 120)
         		,CameraServer.getInstance().getVideo())).start();
         
-        ac = CameraServer.getInstance().addAxisCamera("Axis","10.8.10.20");
+        //ac = CameraServer.getInstance().addAxisCamera("Axis","10.8.10.20");
     }
 
     /**
@@ -107,15 +107,16 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
-
+    
     }
 
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
-        c.setExposureManual((int)SmartDashboard.getNumber("Exposure", 20));
+       
     }
 
     public void autonomousInit() {
+    	Scheduler.getInstance().add(new DefaultGear());
         // schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
     }
@@ -128,6 +129,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopInit() {
+    	Scheduler.getInstance().add(new DefaultGear());
         // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to
         // continue until interrupted by another command, remove

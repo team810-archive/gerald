@@ -45,7 +45,7 @@ public class Drive extends Command {
     protected void execute() {
     	double x = Robot.oi.driveStick.getX();
     	double y = Robot.oi.driveStick.getY();
-    	double r = Robot.oi.driveStick.getZ();
+    	double r = -Robot.oi.driveStick.getZ();
     	if(Math.abs(x)< .2){
     		x = 0;
     	}

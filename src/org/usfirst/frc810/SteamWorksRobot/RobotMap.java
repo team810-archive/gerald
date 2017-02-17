@@ -75,16 +75,18 @@ public class RobotMap {
         driveTrainRobotDrive41.setSensitivity(0.5);
         driveTrainRobotDrive41.setMaxOutput(1.0);
 
+        driveTrainRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
+        driveTrainRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
         driveTrainUltra = new AnalogInput(0);
         LiveWindow.addSensor("DriveTrain", "Ultra", driveTrainUltra);
         
         ballintakeRoller = new Spark(4);
         LiveWindow.addActuator("Ball intake", "Roller", (Spark) ballintakeRoller);
         
-        hopperHopper = new DoubleSolenoid(0, 0, 1);
+        hopperHopper = new DoubleSolenoid(0, 1, 0);
         LiveWindow.addActuator("Hopper", "Hopper", hopperHopper);
         
-        gearMechanismGearPropulsionMechanism = new DoubleSolenoid(0, 2, 3);
+        gearMechanismGearPropulsionMechanism = new DoubleSolenoid(0, 3, 2);
         LiveWindow.addActuator("GearMechanism", "GearPropulsionMechanism", gearMechanismGearPropulsionMechanism);
         
         cameraMountPan = new Servo(5);
@@ -108,7 +110,7 @@ public class RobotMap {
         AutoPutData.addNumber("Intake Motor Current", ()->generalPDP.getCurrent(0));
         AutoPutData.addNumber("Total Drive Current", RobotMap::driveCurrent);
         AutoPutData.addNumber("Winch Current", ()->generalPDP.getCurrent(2));
-        AutoPutData.addNumber("Total Current", generalPDP::getTotalCurrent);
+     //   AutoPutData.addNumber("Total Current", generalPDP::getTotalCurrent);
         navX = new AHRS(Port.kUSB1);
         navX.reset();
         AutoPutData.addNumber("NavX", navX::getAngle);
