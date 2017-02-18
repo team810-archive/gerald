@@ -46,7 +46,7 @@ public class Ballintake extends Subsystem {
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
     }
-    private final double motorSpeed = -.75;
+    private final double motorSpeed = -1;
     public void suckUp(){
     	roller.set(motorSpeed);
     }

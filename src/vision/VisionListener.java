@@ -12,6 +12,7 @@ import org.opencv.imgproc.Imgproc;
 
 import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.vision.*;
 
 public class VisionListener implements VisionRunner.Listener<GripPipeline>{
@@ -62,7 +63,8 @@ public class VisionListener implements VisionRunner.Listener<GripPipeline>{
 				r.found = true;
 				r.x = ((double)p.x)/img.width();
 				r.y = ((double)p.y)/img.height();
-				
+			
+				SmartDashboard.putNumber("VisionX", r.x);
 				Imgproc.circle(img, p, 5, new Scalar(0,255,255));
 				
 				synchronized(visionMutex){

@@ -92,7 +92,7 @@ public class Robot extends IterativeRobot {
         
         c = CameraServer.getInstance().startAutomaticCapture();
         Timer.delay(.1);
-        c.setExposureManual(10);
+        c.setExposureManual(20);
        
         SmartDashboard.putString("AutoFile", "");
         new VisionThread(c, new GripPipeline(), 
@@ -100,6 +100,9 @@ public class Robot extends IterativeRobot {
         		,CameraServer.getInstance().getVideo())).start();
         
         //ac = CameraServer.getInstance().addAxisCamera("Axis","10.8.10.20");
+        
+      //  AutoPutData.addNumber("Slider", Robot.oi.getDriveStick()::getThrottle);
+        SmartDashboard.putNumber("Exposure", SmartDashboard.getNumber("Exposure", 20));
     }
 
     /**
@@ -112,7 +115,7 @@ public class Robot extends IterativeRobot {
 
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
-       
+       c.setExposureManual((int)SmartDashboard.getNumber("Exposure",20));
     }
 
     public void autonomousInit() {
@@ -136,13 +139,31 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         Scheduler.getInstance().add(new SetCameraPosition(.5,.5));
+        Scheduler.getInstance().add(new MakeIntakeFront());
+        ballcounter = 0;
+        
     }
+    
+    int ballcounter = 0;
+    boolean ballstate = false;
+    
 
     /**
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        
+        double intakeCurrent = RobotMap.generalPDP.getCurrent(0);
+        if(intakeCurrent>25 && !ballstate){
+        	ballcounter++;
+        	ballstate = true;
+        }
+        if(intakeCurrent<23){
+        	ballstate = false;
+        }
+        
+        SmartDashboard.putNumber("Total fuel", ballcounter);
     }
 
     /**

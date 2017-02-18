@@ -45,21 +45,25 @@ public class LineUp extends Command {
     	Robot.driveTrain.resetG();
     	counter = 0;
     	VisionListener.newResult = false;
+    	optimalX = RobotMap.getGearPosition().getVisionPosition();
     }
+   private double optimalX;
 
     private int counter = 0;
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double distance = RobotMap.driveTrainUltra.getAverageVoltage()*108.515;
+    	double gd = .2;
+    	double distance = RobotMap.driveTrainUltra.getAverageVoltage();//*108.515;
     	double forward =0;
-    	if (distance>optimalDistance1){
-    		forward =.4;
+    	if (distance>gd){
+    		forward =-.3;
+    		counter = 0;
     	}
     	if(VisionListener.newResult){
     		VisionListener.VisionResult result = VisionListener.getResult();
     		if(result.found){
 	    		SmartDashboard.putNumber("Visionx", result.x);
-	    		double strafe = 2*(result.x-.5) + SmartDashboard.getNumber("Camera Offset", 0);
+	    		double strafe = 1.3*(result.x-optimalX) + SmartDashboard.getNumber("Camera Offset", 0);
 	    		double dist = RobotMap.driveTrainUltra.getAverageVoltage() * 108.515;
 	    		//SmartDashboard.putNumber("Distance (in. avg)", dist);
 	    		if(Math.abs(strafe)<.1){
@@ -67,13 +71,16 @@ public class LineUp extends Command {
 	    			counter++;
 	    		} else{
 	    			counter = 0;
+	    			if(Math.abs(strafe)<.2){
+	    				strafe = .18 * Math.signum(strafe);
+	    			}
+	    			else if(Math.abs(strafe)>=.3){
+	    				strafe = .3 * Math.signum(strafe);
+	    			}
 	    		}
-	    		if(Math.abs(strafe)>=.05&&Math.abs(strafe)<=.2){
-	    			strafe = .007 * Math.signum(strafe);
-	    		}
+	    		SmartDashboard.putNumber("LineUpVal", strafe);
 	    		
-	    		
-	    		Robot.driveTrain.mecanum(-forward, strafe, 0);
+	    		Robot.driveTrain.mecanum(forward, -strafe, 0);
     		}
     	} else{
     		//Robot.driveTrain.mecanum(0, 0, 0);

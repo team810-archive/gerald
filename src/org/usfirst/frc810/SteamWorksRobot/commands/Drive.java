@@ -10,8 +10,10 @@
 
 
 package org.usfirst.frc810.SteamWorksRobot.commands;
-import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc810.SteamWorksRobot.DriveOrientation;
 import org.usfirst.frc810.SteamWorksRobot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
@@ -58,7 +60,12 @@ public class Drive extends Command {
     	else{
     		Robot.driveTrain.resetG();
     	}
-    	Robot.driveTrain.mecanum(x*m_SpeedMultiplier, y*m_SpeedMultiplier, r*m_SpeedMultiplier);
+    	if(m_SpeedMultiplier == -2){
+    		double tempMultiplier = (Robot.oi.driveStick.getThrottle()*-.4)+.6;
+    		DriveOrientation.driveMecanum(x*tempMultiplier, y*tempMultiplier, r*tempMultiplier);
+    	} else{
+    		DriveOrientation.driveMecanum(x*m_SpeedMultiplier, y*m_SpeedMultiplier, r*m_SpeedMultiplier);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

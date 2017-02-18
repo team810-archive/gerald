@@ -46,8 +46,9 @@ public class RotateToAngle extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	pid = new PIDController(0,0,0, RobotMap.navX, a -> {});
+    	
     	pid.setContinuous(true);
-    	pid.setInputRange(-180, 180);
+    	pid.setInputRange(180, -180);
     	pid.setOutputRange(-1, 1);
     	pid.setAbsoluteTolerance(2);
     	pid.setSetpoint(m_angle);
