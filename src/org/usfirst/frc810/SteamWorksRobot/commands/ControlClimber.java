@@ -41,12 +41,7 @@ public class ControlClimber extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double speed = Robot.oi.mechanismStick.getY();
-    	if(Math.abs(speed) <.2){
-    		speed =0;
-    	}
-    	speed*=.002;
-    	Robot.climber.setWinch(speed);
+    	Robot.climber.setWinch();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -56,11 +51,12 @@ public class ControlClimber extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.climber.stopWinch();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.climber.setWinch(0);
+    	end();
     }
 }

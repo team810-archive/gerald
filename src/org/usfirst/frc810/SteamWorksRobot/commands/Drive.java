@@ -14,6 +14,7 @@ import org.usfirst.frc810.SteamWorksRobot.DriveOrientation;
 import org.usfirst.frc810.SteamWorksRobot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -51,7 +52,7 @@ public class Drive extends Command {
     	if(Math.abs(x)< .2){
     		x = 0;
     	}
-    	if(Math.abs(y)< .2){
+    	if(Math.abs(y)< .2||Robot.oi.getDriveStick().getRawButton(3)){
     		y = 0;
     	}
     	if(Math.abs(r)< .2){
@@ -62,6 +63,7 @@ public class Drive extends Command {
     	}
     	if(m_SpeedMultiplier == -2){
     		double tempMultiplier = (Robot.oi.driveStick.getThrottle()*-.4)+.6;
+    		SmartDashboard.putNumber("Multiplier", tempMultiplier);
     		DriveOrientation.driveMecanum(x*tempMultiplier, y*tempMultiplier, r*tempMultiplier);
     	} else{
     		DriveOrientation.driveMecanum(x*m_SpeedMultiplier, y*m_SpeedMultiplier, r*m_SpeedMultiplier);

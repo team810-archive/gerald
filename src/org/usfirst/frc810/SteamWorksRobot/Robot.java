@@ -115,6 +115,7 @@ public class Robot extends IterativeRobot {
 
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
+        SmartDashboard.putNumber("Navx angle", RobotMap.getGyroAngle());
        c.setExposureManual((int)SmartDashboard.getNumber("Exposure",20));
     }
 
@@ -141,6 +142,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().add(new SetCameraPosition(.5,.5));
         Scheduler.getInstance().add(new MakeIntakeFront());
         ballcounter = 0;
+        RobotMap.navX.reset();
         
     }
     

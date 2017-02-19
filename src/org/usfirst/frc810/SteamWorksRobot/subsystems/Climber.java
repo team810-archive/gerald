@@ -48,8 +48,13 @@ public class Climber extends Subsystem {
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
     }
-    public void setWinch(double speed){
-    	winch.set(speed);
+    
+    public void stopWinch(){
+    	winch.set(0);
+    }
+    
+    public void setWinch(){
+    	winch.set(-1);
     }
     
 }
