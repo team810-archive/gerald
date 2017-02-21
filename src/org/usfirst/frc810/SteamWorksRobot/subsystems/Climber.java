@@ -57,5 +57,8 @@ public class Climber extends Subsystem {
     	winch.set(-1);
     }
     
+    public void unwindWinch(){
+    	winch.set(1);
+    }
 }
 

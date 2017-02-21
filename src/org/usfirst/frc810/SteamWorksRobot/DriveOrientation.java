@@ -10,6 +10,7 @@ public enum DriveOrientation {
 	public void setAsCurrent(){
 		currentOrientation = this;
 		SmartDashboard.putString("Orientation", this.name());
+		System.out.println("Orientation: "+this.name());
 	}
 	
 	public static void driveMecanum(double x, double y, double r){

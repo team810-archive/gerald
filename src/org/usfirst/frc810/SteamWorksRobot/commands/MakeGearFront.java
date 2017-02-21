@@ -39,6 +39,7 @@ public class MakeGearFront extends InstantCommand {
     // Called once when this command runs
     protected void initialize() {
     	DriveOrientation.GearFront.setAsCurrent();
+    	
     }
 
 }

@@ -54,7 +54,7 @@ public class LineUp extends Command {
     	pid.setContinuous(true);
     	pid.setInputRange(-180, 180);
     	pid.setOutputRange(-.5, .5);
-    	pid.setAbsoluteTolerance(2);
+    	pid.setAbsoluteTolerance(4);
     	pid.setSetpoint(RobotMap.getGyroAngle());
     	pid.setToleranceBuffer(10);
     	

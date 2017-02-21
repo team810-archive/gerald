@@ -140,12 +140,10 @@ public class RobotMap {
         AutoPutData.addNumber("NavY Accel", navX::getWorldLinearAccelY);
         AutoPutData.addNumber("ExtremeX", ()->VisionListener.extremeVal);
         AutoPutData.addNumber("Start Angle", ()->Robot.startAngle);
-    
-      
     }
     
     public enum GearPosition{
-    	LEFT(.42, true),RIGHT(.55, true);
+    	LEFT(.5875, true),RIGHT(.51875, true);
     	
     	final double visionPosition;
     	final boolean gearIsLeft;
@@ -170,7 +168,7 @@ public class RobotMap {
     	for(int i = 12; i<=15; i++) total += generalPDP.getCurrent(i);
     		return total;
     }
-    
+
     public static double getGyroAngle(){
     	return navX.pidGet();
     }

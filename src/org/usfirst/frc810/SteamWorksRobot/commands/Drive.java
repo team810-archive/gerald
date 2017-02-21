@@ -64,9 +64,9 @@ public class Drive extends Command {
     	if(m_SpeedMultiplier == -2){
     		double tempMultiplier = (Robot.oi.driveStick.getThrottle()*-.4)+.6;
     		SmartDashboard.putNumber("Multiplier", tempMultiplier);
-    		DriveOrientation.driveMecanum(x*tempMultiplier, y*tempMultiplier, r*tempMultiplier);
+    		DriveOrientation.driveMecanum(x*tempMultiplier, y*tempMultiplier, .7*r*tempMultiplier);
     	} else{
-    		DriveOrientation.driveMecanum(x*m_SpeedMultiplier, y*m_SpeedMultiplier, r*m_SpeedMultiplier);
+    		DriveOrientation.driveMecanum(x*m_SpeedMultiplier, y*m_SpeedMultiplier, r*m_SpeedMultiplier*.7);
     	}
     }
 
