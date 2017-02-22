@@ -15,8 +15,6 @@ import org.usfirst.frc810.SteamWorksRobot.Robot;
 import org.usfirst.frc810.SteamWorksRobot.RobotMap;
 import org.usfirst.frc810.SteamWorksRobot.commands.*;
 
-import com.ctre.CANTalon;
-
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
