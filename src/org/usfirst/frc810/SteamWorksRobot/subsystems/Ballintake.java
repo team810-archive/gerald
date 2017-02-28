@@ -12,10 +12,8 @@
 package org.usfirst.frc810.SteamWorksRobot.subsystems;
 
 import org.usfirst.frc810.SteamWorksRobot.RobotMap;
-import org.usfirst.frc810.SteamWorksRobot.commands.*;
-import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.SpeedController;
 
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 

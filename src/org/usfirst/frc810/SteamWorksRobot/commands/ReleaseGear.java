@@ -10,9 +10,10 @@
 
 
 package org.usfirst.frc810.SteamWorksRobot.commands;
+import org.usfirst.frc810.SteamWorksRobot.Robot;
+
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc810.SteamWorksRobot.Robot;
 
 /**
  *

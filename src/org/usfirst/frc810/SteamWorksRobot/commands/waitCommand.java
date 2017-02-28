@@ -12,7 +12,6 @@
 package org.usfirst.frc810.SteamWorksRobot.commands;
 
 import edu.wpi.first.wpilibj.command.TimedCommand;
-import org.usfirst.frc810.SteamWorksRobot.Robot;
 
 /**
  *

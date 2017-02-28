@@ -11,7 +11,26 @@
 
 package org.usfirst.frc810.SteamWorksRobot;
 
-import org.usfirst.frc810.SteamWorksRobot.commands.*;
+import org.usfirst.frc810.SteamWorksRobot.commands.AutoGearSequence;
+import org.usfirst.frc810.SteamWorksRobot.commands.AutoGearStartFromCenter;
+import org.usfirst.frc810.SteamWorksRobot.commands.AutoGearStartFromLeft;
+import org.usfirst.frc810.SteamWorksRobot.commands.AutoGearStartFromRight;
+import org.usfirst.frc810.SteamWorksRobot.commands.AutonomousCommand;
+import org.usfirst.frc810.SteamWorksRobot.commands.ControlClimber;
+import org.usfirst.frc810.SteamWorksRobot.commands.DefaultGear;
+import org.usfirst.frc810.SteamWorksRobot.commands.Drive;
+import org.usfirst.frc810.SteamWorksRobot.commands.DumpHopper;
+import org.usfirst.frc810.SteamWorksRobot.commands.FireGear;
+import org.usfirst.frc810.SteamWorksRobot.commands.GearAdjustmentLineUp;
+import org.usfirst.frc810.SteamWorksRobot.commands.LineUpGroup;
+import org.usfirst.frc810.SteamWorksRobot.commands.MakeClimberFront;
+import org.usfirst.frc810.SteamWorksRobot.commands.MakeGearAdjustment;
+import org.usfirst.frc810.SteamWorksRobot.commands.MakeGearFront;
+import org.usfirst.frc810.SteamWorksRobot.commands.MakeIntakeFront;
+import org.usfirst.frc810.SteamWorksRobot.commands.ReleaseGear;
+import org.usfirst.frc810.SteamWorksRobot.commands.RotateToAngle;
+import org.usfirst.frc810.SteamWorksRobot.commands.SuckItUp;
+import org.usfirst.frc810.SteamWorksRobot.commands.UnwindCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;

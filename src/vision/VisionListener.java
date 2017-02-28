@@ -13,7 +13,7 @@ import org.opencv.imgproc.Imgproc;
 import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.vision.*;
+import edu.wpi.first.wpilibj.vision.VisionRunner;
 
 public class VisionListener implements VisionRunner.Listener<GripPipeline>{
 

@@ -10,9 +10,7 @@
 
 
 package org.usfirst.frc810.SteamWorksRobot.commands;
-import org.usfirst.frc810.SteamWorksRobot.*;
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import org.usfirst.frc810.SteamWorksRobot.subsystems.*;
 
 /**
  *

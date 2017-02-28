@@ -12,9 +12,8 @@
 package org.usfirst.frc810.SteamWorksRobot.subsystems;
 
 import org.usfirst.frc810.SteamWorksRobot.RobotMap;
-import org.usfirst.frc810.SteamWorksRobot.commands.*;
+import org.usfirst.frc810.SteamWorksRobot.commands.Drive;
 
-import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;

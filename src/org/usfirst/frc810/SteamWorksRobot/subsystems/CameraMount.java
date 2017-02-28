@@ -12,9 +12,9 @@
 package org.usfirst.frc810.SteamWorksRobot.subsystems;
 
 import org.usfirst.frc810.SteamWorksRobot.RobotMap;
-import org.usfirst.frc810.SteamWorksRobot.commands.*;
-import edu.wpi.first.wpilibj.Servo;
+import org.usfirst.frc810.SteamWorksRobot.commands.ControlCamera;
 
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 

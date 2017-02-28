@@ -11,10 +11,9 @@
 
 package org.usfirst.frc810.SteamWorksRobot.commands;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
-
 import org.usfirst.frc810.SteamWorksRobot.Robot;
-import org.usfirst.frc810.SteamWorksRobot.subsystems.*;
+
+import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *

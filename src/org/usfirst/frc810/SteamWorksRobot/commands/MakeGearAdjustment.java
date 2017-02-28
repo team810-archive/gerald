@@ -10,10 +10,10 @@
 
 
 package org.usfirst.frc810.SteamWorksRobot.commands;
+import org.usfirst.frc810.SteamWorksRobot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 import vision.VisionListener;
-
-import org.usfirst.frc810.SteamWorksRobot.Robot;
 
 /**
  *
