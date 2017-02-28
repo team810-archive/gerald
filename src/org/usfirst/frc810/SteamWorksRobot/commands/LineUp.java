@@ -119,9 +119,6 @@ public class LineUp extends Command {
     //keeps going until hits sonar hot spot which is as close as can be without hitting point of no return
     //First move forward
 
-    private void finalAutoForward(){
-    	
-    }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return counter>2;
