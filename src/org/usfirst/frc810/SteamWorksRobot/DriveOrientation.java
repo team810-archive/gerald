@@ -3,7 +3,7 @@ package org.usfirst.frc810.SteamWorksRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public enum DriveOrientation {
-	IntakeFront,GearFront,ClimberFront;
+	IntakeFront,GearFront,ClimberFront,DumpFront;
 	private static DriveOrientation currentOrientation = IntakeFront;
 
 	
@@ -23,6 +23,9 @@ public enum DriveOrientation {
 			break;
 		case ClimberFront:
 			Robot.driveTrain.mecanum(-x, -y, r);
+			break;
+		case DumpFront:
+			Robot.driveTrain.mecanum(-y, x, r);
 			break;
 		}
 	}
