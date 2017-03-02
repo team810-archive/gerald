@@ -12,14 +12,14 @@ Children:
             default: Talon
             name: Type
             validators: null
-            value: Spark
+            value: Victor
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
             choices: &id002 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
               '11', '12', '13', '14', '15', '16', '17', '18', '19']
             default: '0'
             name: Output Channel (PWM)
             validators: &id003 [PWMOutput]
-            value: '0'
+            value: '2'
         Base: Speed Controller
         Name: FL
       - Children: []
@@ -29,13 +29,13 @@ Children:
             default: Talon
             name: Type
             validators: null
-            value: Spark
+            value: Victor
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
             choices: *id002
             default: '0'
             name: Output Channel (PWM)
             validators: *id003
-            value: '1'
+            value: '0'
         Base: Speed Controller
         Name: BL
       - Children: []
@@ -45,13 +45,13 @@ Children:
             default: Talon
             name: Type
             validators: null
-            value: Spark
+            value: Victor
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
             choices: *id002
             default: '0'
             name: Output Channel (PWM)
             validators: *id003
-            value: '2'
+            value: '3'
         Base: Speed Controller
         Name: FR
       - Children: []
@@ -61,13 +61,13 @@ Children:
             default: Talon
             name: Type
             validators: null
-            value: Spark
+            value: Victor
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
             choices: *id002
             default: '0'
             name: Output Channel (PWM)
             validators: *id003
-            value: '3'
+            value: '1'
         Base: Speed Controller
         Name: BR
       Properties:
