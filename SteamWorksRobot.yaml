@@ -833,7 +833,7 @@ Children:
         validators: &id029 [List]
         value:
         - &id024 !!robotbuilder.data.CommandGroupEntry
-          command: &id048
+          command:
             base: &id025
               help: A command specifies an action that the robot can perform.
               name: Command
@@ -892,7 +892,7 @@ Children:
             properties: &id028
               Parameters: !!robotbuilder.data.properties.ParametersProperty
                 default:
-                - !!robotbuilder.data.properties.ParameterDescriptor {name: timeout,
+                - &id053 !!robotbuilder.data.properties.ParameterDescriptor {name: timeout,
                   type: double}
                 name: Parameters
                 validators: null
@@ -919,7 +919,7 @@ Children:
               type: double, value: '.25'}
           previous: *id024
         - !!robotbuilder.data.CommandGroupEntry
-          command: &id056
+          command:
             base: *id025
             name: DefaultGear
             properties: *id026
@@ -1129,7 +1129,7 @@ Children:
         value:
         - !!robotbuilder.data.CommandGroupEntry
           command:
-            base:
+            base: &id051
               help: A command specifies an action that the robot can perform.
               name: Command
               properties:
@@ -1472,9 +1472,9 @@ Children:
                 name: Commands
                 validators: *id029
                 value:
-                - &id049 !!robotbuilder.data.CommandGroupEntry
+                - &id050 !!robotbuilder.data.CommandGroupEntry
                   command:
-                    base: &id064
+                    base:
                       help: A group of commands set to run together in a prescribed way.
                       name: Command Group
                       properties:
@@ -1483,7 +1483,7 @@ Children:
                       - !!robotbuilder.data.properties.ListProperty
                         default: &id045 []
                         name: Commands
-                        validators: [List]
+                        validators: *id029
                         value: *id045
                       - !!robotbuilder.data.properties.ParametersProperty
                         default: []
@@ -1508,16 +1508,6 @@ Children:
                     value: []
                   previous: null
                 - &id052 !!robotbuilder.data.CommandGroupEntry
-                  command: *id048
-                  hasMatch: true
-                  order: Sequential
-                  parameters:
-                    default: []
-                    name: ParametersProperty
-                    validators: null
-                    value: []
-                  previous: *id049
-                - &id055 !!robotbuilder.data.CommandGroupEntry
                   command:
                     base:
                       help: A command specifies an action that the robot can perform and finishes after a timeout.
@@ -1532,20 +1522,20 @@ Children:
                         name: Parameters
                         validators: null
                         value:
-                        - &id051 !!robotbuilder.data.properties.ParameterDescriptor {
+                        - &id049 !!robotbuilder.data.properties.ParameterDescriptor {
                           name: timeout, type: double}
                       - !!robotbuilder.data.properties.ParameterSetProperty
-                        default: &id050 []
+                        default: &id048 []
                         name: Parameter presets
                         validators: null
-                        value: *id050
+                        value: *id048
                       supports: {}
                       type: Command
                     name: waitCommand
                     properties:
                       Parameters: !!robotbuilder.data.properties.ParametersProperty
                         default:
-                        - *id051
+                        - *id049
                         name: Parameters
                         validators: null
                         value:
@@ -1571,55 +1561,60 @@ Children:
                     value:
                     - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: timeout,
                       type: double, value: '.5'}
+                  previous: *id050
+                - &id055 !!robotbuilder.data.CommandGroupEntry
+                  command:
+                    base: *id051
+                    name: ReleaseGear
+                    properties: *id022
+                  hasMatch: true
+                  order: Sequential
+                  parameters:
+                    default: []
+                    name: ParametersProperty
+                    validators: null
+                    value: []
                   previous: *id052
-                - &id057 !!robotbuilder.data.CommandGroupEntry
+                - &id056 !!robotbuilder.data.CommandGroupEntry
                   command:
                     base:
-                      help: A command specifies an action that the robot can perform.
-                      name: Command
+                      help: A command specifies an action that the robot can perform and finishes after a timeout.
+                      name: Timed Command
                       properties:
                       - !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
                         name: Requires, type: Subsystem, validators: null, value: None}
                       - !!robotbuilder.data.properties.BooleanProperty {default: true,
                         name: Button on SmartDashboard, validators: null, value: true}
                       - !!robotbuilder.data.properties.ParametersProperty
-                        default: []
-                        name: Parameters
-                        validators: null
-                        value: []
-                      - !!robotbuilder.data.properties.ParameterSetProperty
-                        default: &id053 []
-                        name: Parameter presets
-                        validators: null
-                        value: *id053
-                      supports: {}
-                      type: Command
-                    name: AutoMove
-                    properties:
-                      Parameters: !!robotbuilder.data.properties.ParametersProperty
-                        default: []
+                        default: null
                         name: Parameters
                         validators: null
                         value:
-                        - !!robotbuilder.data.properties.ParameterDescriptor {name: x,
-                          type: double}
-                        - !!robotbuilder.data.properties.ParameterDescriptor {name: y,
-                          type: double}
-                        - !!robotbuilder.data.properties.ParameterDescriptor {name: r,
-                          type: double}
-                        - !!robotbuilder.data.properties.ParameterDescriptor {name: seconds,
-                          type: double}
-                      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {
-                        default: None, name: Requires, type: Subsystem, validators: null,
-                        value: DriveTrain}
-                      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+                        - *id053
+                      - !!robotbuilder.data.properties.ParameterSetProperty
                         default: &id054 []
                         name: Parameter presets
                         validators: null
                         value: *id054
-                      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {
-                        default: true, name: Button on SmartDashboard, validators: null,
-                        value: false}
+                      supports: {}
+                      type: Command
+                    name: waitCommand
+                    properties: *id028
+                  hasMatch: true
+                  order: Sequential
+                  parameters:
+                    default: []
+                    name: ParametersProperty
+                    validators: null
+                    value:
+                    - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: timeout,
+                      type: double, value: '.5'}
+                  previous: *id055
+                - &id057 !!robotbuilder.data.CommandGroupEntry
+                  command:
+                    base: *id051
+                    name: AutoMove
+                    properties: *id039
                   hasMatch: true
                   order: Sequential
                   parameters:
@@ -1635,9 +1630,12 @@ Children:
                       type: double, value: '0'}
                     - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: seconds,
                       type: double, value: '.5'}
-                  previous: *id055
+                  previous: *id056
                 - !!robotbuilder.data.CommandGroupEntry
-                  command: *id056
+                  command:
+                    base: *id051
+                    name: DefaultGear
+                    properties: *id026
                   hasMatch: true
                   order: Sequential
                   parameters:
@@ -1740,7 +1738,7 @@ Children:
             - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: seconds,
               type: double, value: '.5'}
           previous: null
-        - &id065 !!robotbuilder.data.CommandGroupEntry
+        - &id066 !!robotbuilder.data.CommandGroupEntry
           command:
             base:
               help: A command specifies an action that the robot can perform.
@@ -1795,8 +1793,30 @@ Children:
               type: double, value: '90'}
           previous: *id063
         - !!robotbuilder.data.CommandGroupEntry
-          command: &id070
-            base: *id064
+          command: &id071
+            base:
+              help: A group of commands set to run together in a prescribed way.
+              name: Command Group
+              properties:
+              - !!robotbuilder.data.properties.BooleanProperty {default: true, name: Button on SmartDashboard,
+                validators: null, value: true}
+              - !!robotbuilder.data.properties.ListProperty
+                default: &id064 []
+                name: Commands
+                validators: [List]
+                value: *id064
+              - !!robotbuilder.data.properties.ParametersProperty
+                default: []
+                name: Parameters
+                validators: null
+                value: []
+              - !!robotbuilder.data.properties.ParameterSetProperty
+                default: &id065 []
+                name: Parameter presets
+                validators: null
+                value: *id065
+              supports: {}
+              type: Command
             name: AutoGearSequence
             properties: *id059
           hasMatch: true
@@ -1806,7 +1826,7 @@ Children:
             name: ParametersProperty
             validators: null
             value: []
-          previous: *id065
+          previous: *id066
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command Group
@@ -1828,7 +1848,7 @@ Children:
         name: Commands
         validators: *id029
         value:
-        - &id069 !!robotbuilder.data.CommandGroupEntry
+        - &id070 !!robotbuilder.data.CommandGroupEntry
           command:
             base:
               help: A command specifies an action that the robot can perform.
@@ -1844,10 +1864,10 @@ Children:
                 validators: null
                 value: []
               - !!robotbuilder.data.properties.ParameterSetProperty
-                default: &id066 []
+                default: &id067 []
                 name: Parameter presets
                 validators: null
-                value: *id066
+                value: *id067
               supports: {}
               type: Command
             name: AutoMove
@@ -1865,10 +1885,10 @@ Children:
               Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
                 name: Requires, type: Subsystem, validators: null, value: DriveTrain}
               Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-                default: &id067 []
+                default: &id068 []
                 name: Parameter presets
                 validators: null
-                value: *id067
+                value: *id068
               Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {
                 default: true, name: Button on SmartDashboard, validators: null, value: false}
           hasMatch: true
@@ -1887,7 +1907,7 @@ Children:
             - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: seconds,
               type: double, value: '1'}
           previous: null
-        - &id071 !!robotbuilder.data.CommandGroupEntry
+        - &id072 !!robotbuilder.data.CommandGroupEntry
           command:
             base:
               help: A command specifies an action that the robot can perform.
@@ -1903,10 +1923,10 @@ Children:
                 validators: null
                 value: []
               - !!robotbuilder.data.properties.ParameterSetProperty
-                default: &id068 []
+                default: &id069 []
                 name: Parameter presets
                 validators: null
-                value: *id068
+                value: *id069
               supports: {}
               type: Command
             name: RotateToAngle
@@ -1940,9 +1960,9 @@ Children:
             value:
             - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: angle,
               type: double, value: '30'}
-          previous: *id069
+          previous: *id070
         - !!robotbuilder.data.CommandGroupEntry
-          command: *id070
+          command: *id071
           hasMatch: true
           order: Sequential
           parameters:
@@ -1950,11 +1970,34 @@ Children:
             name: ParametersProperty
             validators: null
             value: []
-          previous: *id071
+          previous: *id072
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command Group
     Name: AutoGearStartFromRight
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value:
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: degrees, type: double}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: DriveTrain}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id073
+        - !!robotbuilder.data.properties.ParameterSet
+          name: rotate90
+          parameters:
+          - {name: degrees, type: double, value: '90'}
+        name: Parameter presets
+        validators: null
+        value: *id073
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: QuickRotateRelative
   Properties: {}
   Base: Commands
   Name: Commands
