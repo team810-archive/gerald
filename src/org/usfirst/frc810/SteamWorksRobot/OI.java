@@ -27,7 +27,6 @@ import org.usfirst.frc810.SteamWorksRobot.commands.MakeClimberFront;
 import org.usfirst.frc810.SteamWorksRobot.commands.MakeGearAdjustment;
 import org.usfirst.frc810.SteamWorksRobot.commands.MakeGearFront;
 import org.usfirst.frc810.SteamWorksRobot.commands.MakeIntakeFront;
-import org.usfirst.frc810.SteamWorksRobot.commands.QuickRotateRelative;
 import org.usfirst.frc810.SteamWorksRobot.commands.ReleaseGear;
 import org.usfirst.frc810.SteamWorksRobot.commands.RotateToAngle;
 import org.usfirst.frc810.SteamWorksRobot.commands.SuckItUp;
