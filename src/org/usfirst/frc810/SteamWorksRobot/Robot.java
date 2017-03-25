@@ -76,7 +76,7 @@ public class Robot extends IterativeRobot {
     public static CvSink climberCamera;
     public static CvSink intakeCamera;
     public static double startAngle;
-    public static final double gearStep1Dist = .165;
+    public static final double gearStep1Dist = .185;
     public static final double gearStep2Dist = .145;
     
     public static SendableChooser<Supplier<Command>> AutoCommandSupplier; 

@@ -115,7 +115,7 @@ public class LineUp extends Command {
     //	if(!pid.onTarget()) counter = 0;
     	SmartDashboard.putNumber("PID Output", pid.get());
     	SmartDashboard.putNumber("PID Error", pid.getError());
-    	Robot.driveTrain.mecanum(forward, strafeout, 0/* pid.get()*/);
+    	Robot.driveTrain.mecanum(forward, strafeout,  pid.get());
     }
     //keeps going until hits sonar hot spot which is as close as can be without hitting point of no return
     //First move forward

@@ -92,7 +92,7 @@ public class RobotMap {
         gearMechanismGearPropulsionMechanism = new DoubleSolenoid(0, 3, 2);
         LiveWindow.addActuator("GearMechanism", "GearPropulsionMechanism", gearMechanismGearPropulsionMechanism);
         
-        gearMechanismGearPositionSensor = new DigitalInput(0);
+        gearMechanismGearPositionSensor = new DigitalInput(1); //
         LiveWindow.addSensor("GearMechanism", "GearPositionSensor", gearMechanismGearPositionSensor);
         
         cameraMountPan = new Servo(5);
