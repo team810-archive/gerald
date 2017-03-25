@@ -11,6 +11,8 @@
 
 package org.usfirst.frc810.SteamWorksRobot.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc810.SteamWorksRobot.Robot;
 
 /**
@@ -48,13 +50,13 @@ public class ThumbMoveCommand extends Command {
     			Robot.driveTrain.mecanum(0, -1*tempMultiplier, 0);
     			break;
     		case 90:
-    			Robot.driveTrain.mecanum(1*tempMultiplier, 0, 0);
+    			Robot.driveTrain.mecanum(1*tempMultiplier, 0+SmartDashboard.getNumber("strafeModifier",0), 0);
     			break;
     		case 180:
     			Robot.driveTrain.mecanum(0, 1*tempMultiplier, 0);
     			break;
     		case 270:
-    			Robot.driveTrain.mecanum(-1*tempMultiplier, 0, 0);
+    			Robot.driveTrain.mecanum(-1*tempMultiplier, 0-SmartDashboard.getNumber("strafeModifier",0), 0);
     			break;
     	}
     	

@@ -13,6 +13,10 @@ public enum DriveOrientation {
 		System.out.println("Orientation: "+this.name());
 	}
 	
+	public static DriveOrientation getCurrentOrientation(){
+		return currentOrientation;
+	}
+	
 	public static void driveMecanum(double x, double y, double r){
 		switch(currentOrientation){
 		case IntakeFront:

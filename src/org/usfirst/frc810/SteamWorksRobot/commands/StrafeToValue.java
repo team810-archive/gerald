@@ -45,6 +45,9 @@ public class StrafeToValue extends Command {
     PIDController pid;
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
+    	System.out.println("StrafeToValue:init");
+  
     	Robot.driveTrain.resetG();
     	VisionListener.newResult = false;
     	pid = new PIDController(0,0,0, RobotMap.navX, a -> {});
@@ -94,6 +97,7 @@ public class StrafeToValue extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	System.out.println("StrafeToValue:end");
     	pid.disable();
     	pid.free();
     }

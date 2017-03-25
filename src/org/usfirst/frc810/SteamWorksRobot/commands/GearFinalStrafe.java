@@ -11,6 +11,9 @@
 
 package org.usfirst.frc810.SteamWorksRobot.commands;
 
+import org.usfirst.frc810.SteamWorksRobot.Robot;
+import org.usfirst.frc810.SteamWorksRobot.RobotMap;
+
 import edu.wpi.first.wpilibj.command.ConditionalCommand;
 import vision.VisionListener;
 
@@ -28,6 +31,17 @@ public class GearFinalStrafe extends ConditionalCommand {
     }
 
     protected boolean condition(){
-        return VisionListener.numResults>=2;
+    	System.out.println("GearFinalStrafe: "+(VisionListener.numResults!=1));
+        return VisionListener.numResults!=1;
+    }
+    
+    @Override protected boolean isFinished(){
+    	return RobotMap.driveTrainUltra.getAverageVoltage()<Robot.gearStep2Dist;
+    }
+    
+    @Override protected void end(){
+    	super.end();
+    	System.out.println("GearFinalSteafe:end");
     }
 }
+

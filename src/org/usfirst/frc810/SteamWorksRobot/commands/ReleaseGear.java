@@ -39,6 +39,7 @@ public class ReleaseGear extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("Release Gear");
     	Robot.gearMechanism.setSolenoid(Value.kForward);
     }
 

@@ -48,6 +48,7 @@ public class AutoMove extends Command {
     
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("AutoMove Started");
     	endTime = System.currentTimeMillis() + (long)(m_seconds*1000);
     }
 
@@ -63,6 +64,7 @@ public class AutoMove extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	System.out.println("AutoMove Finished");
     	Robot.driveTrain.mecanum(0, 0, 0);
     }
 

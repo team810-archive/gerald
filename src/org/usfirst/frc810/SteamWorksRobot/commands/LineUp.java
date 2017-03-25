@@ -44,6 +44,7 @@ public class LineUp extends Command {
     PIDController pid;
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("LineUp:init");
     	Robot.driveTrain.resetG();
     	counter = 0;
     	VisionListener.newResult = false;
@@ -111,10 +112,10 @@ public class LineUp extends Command {
     	strafecounter++;
     	if(strafecounter > 10) strafeout = 0;
     	SmartDashboard.putNumber("StrafeVal", strafeout);
-    	if(!pid.onTarget()) counter = 0;
+    //	if(!pid.onTarget()) counter = 0;
     	SmartDashboard.putNumber("PID Output", pid.get());
     	SmartDashboard.putNumber("PID Error", pid.getError());
-    	Robot.driveTrain.mecanum(forward, strafeout, pid.get());
+    	Robot.driveTrain.mecanum(forward, strafeout, 0/* pid.get()*/);
     }
     //keeps going until hits sonar hot spot which is as close as can be without hitting point of no return
     //First move forward
@@ -126,6 +127,7 @@ public class LineUp extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	System.out.println("LineUp:end");
     	pid.disable();
     	pid.free();
     }
