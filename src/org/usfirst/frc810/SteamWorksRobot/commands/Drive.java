@@ -61,6 +61,8 @@ public class Drive extends Command {
     	else{
     		Robot.driveTrain.resetG();
     	}
+    	if(Robot.oi.getDriveStick().getRawButton(1)) x = 0;
+    	
     	if(m_SpeedMultiplier == -2){
     		double tempMultiplier = (Robot.oi.driveStick.getThrottle()*-.4)+.6;
     		SmartDashboard.putNumber("Multiplier", tempMultiplier);

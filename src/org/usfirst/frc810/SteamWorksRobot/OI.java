@@ -93,8 +93,8 @@ public class OI {
         gearFront.whenPressed(new MakeGearFront());
         lineUpButton = new JoystickButton(driveStick, 2);
         lineUpButton.whileHeld(new LineUpGroup());
-        halfSpeed = new JoystickButton(driveStick, 1);
-        halfSpeed.whileHeld(new Drive(.65));
+       // halfSpeed = new JoystickButton(driveStick, 1);
+        //halfSpeed.whileHeld(new Drive(.65));
 
 
         // SmartDashboard Buttons
