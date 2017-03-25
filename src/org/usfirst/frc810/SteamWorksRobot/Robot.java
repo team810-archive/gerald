@@ -76,8 +76,8 @@ public class Robot extends IterativeRobot {
     public static CvSink climberCamera;
     public static CvSink intakeCamera;
     public static double startAngle;
-    public static final double gearStep1Dist = .185;
-    public static final double gearStep2Dist = .145;
+    public static final double gearStep1Dist = .2;
+    public static final double gearStep2Dist = .13;
     
     public static SendableChooser<Supplier<Command>> AutoCommandSupplier; 
 
@@ -175,6 +175,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void disabledPeriodic() {
+    	SmartDashboard.putBoolean("Gear Sensor", RobotMap.gearMechanismGearPositionSensor.get());
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Navx angle", RobotMap.getGyroAngle());
        gearCamera.setExposureManual((int)SmartDashboard.getNumber("Exposure",20));
@@ -182,6 +183,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
     	Scheduler.getInstance().add(new DefaultGear());
+    	RobotMap.navX.reset();
     	startAngle = RobotMap.getGyroAngle();
         // schedule the autonomous command (example)
     	autonomousCommand = AutoCommandSupplier.getSelected().get();

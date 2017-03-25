@@ -52,10 +52,10 @@ public class Drive extends Command {
     	if(Math.abs(x)< .2){
     		x = 0;
     	}
-    	if(Math.abs(y)< .2||Robot.oi.getDriveStick().getRawButton(3)){
+    	if(Math.abs(y)< .2){
     		y = 0;
     	}
-    	if(Math.abs(r)< .2){
+    	if(Math.abs(r)< .25){
     		r = 0; 
     	}
     	else{

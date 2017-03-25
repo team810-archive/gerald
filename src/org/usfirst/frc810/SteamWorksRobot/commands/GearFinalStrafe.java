@@ -35,7 +35,7 @@ public class GearFinalStrafe extends ConditionalCommand {
         return VisionListener.numResults!=1;
     }
     
-    @Override protected boolean isFinished(){
+   @Override protected boolean isFinished(){
     	return RobotMap.driveTrainUltra.getAverageVoltage()<Robot.gearStep2Dist;
     }
     

@@ -73,7 +73,7 @@ public class StrafeToValue extends Command {
     	double distance = RobotMap.driveTrainUltra.getAverageVoltage();//*108.515;
     	double forward =0;
     	if (distance>m_UltrasonicValue){
-    		forward =-.65;
+    		forward =-.5;
     	} else{
     		finished = true;
     	}

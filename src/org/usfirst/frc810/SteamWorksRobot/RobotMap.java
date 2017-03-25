@@ -148,7 +148,7 @@ public class RobotMap {
     }
     
     public enum GearPosition{
-    	LEFT(.5625, true),RIGHT(.51875, false);
+    	LEFT(.45, true),RIGHT(.396, false);
     	
     	final double visionPosition;
     	final boolean gearIsLeft;
@@ -179,6 +179,8 @@ public class RobotMap {
     }
     
     public static GearPosition getGearPosition(){
-    	return (gearMechanismGearPositionSensor.get())?GearPosition.RIGHT:GearPosition.LEFT;
+    	if(Robot.oi != null)
+    		return Robot.oi.getDriveStick().getRawButton(6)?GearPosition.RIGHT:GearPosition.LEFT;//(gearMechanismGearPositionSensor.get())?GearPosition.RIGHT:GearPosition.LEFT;
+    	else return GearPosition.LEFT;
     }
 }
