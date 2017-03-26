@@ -76,8 +76,8 @@ public class Robot extends IterativeRobot {
     public static CvSink climberCamera;
     public static CvSink intakeCamera;
     public static double startAngle;
-    public static final double gearStep1Dist = .2;
-    public static final double gearStep2Dist = .16;
+    public static final double gearStep1Dist = .22;
+    public static final double gearStep2Dist = .145;
     
     public static SendableChooser<Supplier<Command>> AutoCommandSupplier; 
 
@@ -125,8 +125,8 @@ public class Robot extends IterativeRobot {
         driveTrain.resetG();
         
     	
-    	SmartDashboard.putNumber("PID P", .03);
-    	SmartDashboard.putNumber("PID I", .002);
+    	SmartDashboard.putNumber("PID P", .01);
+    	SmartDashboard.putNumber("PID I", .0015);
     	SmartDashboard.putNumber("PID D", .0015);
         
         gearCamera = CameraServer.getInstance().startAutomaticCapture("Gear", 2);

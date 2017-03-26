@@ -50,7 +50,7 @@ public class RotateToAngle extends Command {
     	pid.setContinuous(true);
     	pid.setInputRange(-180, 180);
     	pid.setOutputRange(-.5, .5);
-    	pid.setAbsoluteTolerance(2);
+    	pid.setAbsoluteTolerance(3);
     	pid.setSetpoint(m_angle-Robot.startAngle);
     	pid.setToleranceBuffer(10);
     
