@@ -80,7 +80,7 @@ public class StrafeToValue extends Command {
     	
     	SmartDashboard.putNumber("PID Output", pid.get());
     	SmartDashboard.putNumber("PID Error", pid.getError());
-    	Robot.driveTrain.mecanum(forward, .0, pid.get());
+    	Robot.driveTrain.mecanum(forward, 0, pid.get());
     }
 
     // Make this return true when this Command no longer needs to run execute()
