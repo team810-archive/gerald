@@ -86,7 +86,7 @@ public class LineUp extends Command {
 	    		SmartDashboard.putNumber("Visionx", result.x);
 	    		double strafe = 1*(result.x-optimalX) + SmartDashboard.getNumber("Camera Offset", 0);
 	    		//SmartDashboard.putNumber("Distance (in. avg)", dist);
-	    		if(Math.abs(strafe)<.03){
+	    		if(Math.abs(strafe)<.025){
 	    			strafe = 0;
 	    			counter++;	    			
     			} else{

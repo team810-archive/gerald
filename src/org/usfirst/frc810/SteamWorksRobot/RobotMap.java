@@ -148,7 +148,7 @@ public class RobotMap {
     }
     
     public enum GearPosition{
-    	LEFT(.45, true),RIGHT(.396, false);
+    	LEFT(.52, true),RIGHT(.52, false);
     	
     	final double visionPosition;
     	final boolean gearIsLeft;
