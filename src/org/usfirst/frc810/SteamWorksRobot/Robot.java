@@ -77,8 +77,8 @@ public class Robot extends IterativeRobot {
     public static UsbCamera climberCameraUSB;
     public static CvSink intakeCamera;
     public static double startAngle;
-    public static final double gearStep1Dist = .19;
-    public static final double gearStep2Dist = .19;
+    public static final double gearStep1Dist = .184;
+    public static final double gearStep2Dist = .184;
     
     public static SendableChooser<Supplier<Command>> AutoCommandSupplier; 
 
@@ -130,7 +130,7 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putNumber("PID I", .0015);
     	SmartDashboard.putNumber("PID D", .0015);
         
-        gearCamera = CameraServer.getInstance().startAutomaticCapture("Gear", 2);
+        gearCamera = CameraServer.getInstance().startAutomaticCapture("Gear", 1);
         Timer.delay(.1);
         gearCamera.setExposureManual(20);
        
@@ -139,7 +139,7 @@ public class Robot extends IterativeRobot {
         		new VisionListener(CameraServer.getInstance().putVideo("Processed", 160, 120)
         		,CameraServer.getInstance().getVideo(gearCamera))).start();
         
-        climberCameraUSB=CameraServer.getInstance().startAutomaticCapture("Climber", 1);
+        climberCameraUSB=CameraServer.getInstance().startAutomaticCapture("Climber", 0);
         climberCamera = CameraServer.getInstance().getVideo(climberCameraUSB);
       
        // intakeCamera = CameraServer.getInstance().getVideo(CameraServer.getInstance().startAutomaticCapture("Intake", 0));
@@ -164,7 +164,7 @@ public class Robot extends IterativeRobot {
         }, 1000, 50, TimeUnit.MILLISECONDS);*/
         
       //  AutoPutData.addNumber("Slider", Robot.oi.getDriveStick()::getThrottle);
-        SmartDashboard.putNumber("Exposure", SmartDashboard.getNumber("Exposure", 20));
+        SmartDashboard.putNumber("Exposure", SmartDashboard.getNumber("Exposure", 40));
         SmartDashboard.putNumber("strafeModifier", 0.1);
         
     }
@@ -181,8 +181,8 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putBoolean("Gear Sensor", RobotMap.gearMechanismGearPositionSensor.get());
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Navx angle", RobotMap.getGyroAngle());
-       gearCamera.setExposureManual((int)SmartDashboard.getNumber("Exposure",20));
-       climberCameraUSB.setExposureManual((int)SmartDashboard.getNumber("Exposure",20));
+      // gearCamera.setExposureManual((int)SmartDashboard.getNumber("Exposure",20));
+       climberCameraUSB.setExposureManual((int)SmartDashboard.getNumber("Exposure",40));
     }
 
     public void autonomousInit() {

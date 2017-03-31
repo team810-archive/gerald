@@ -95,7 +95,7 @@ public class LineUp extends Command {
 	    			}
 	    			counter = 0;
 	    			if(Math.abs(strafe)<.3){
-	    				strafe = .18 * Math.signum(strafe);
+	    				strafe = .175 * Math.signum(strafe);
 	    			}
 	    			else if(Math.abs(strafe)>=.3){
 	    				strafe = .25 * Math.signum(strafe);
